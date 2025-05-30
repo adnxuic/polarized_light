@@ -34,7 +34,7 @@ class StokesParameters:
             bool: 加载是否成功
         """
         # 常见的编码格式列表
-        encodings = ['utf-8', 'gbk', 'gb2312', 'latin-1', 'cp1252', 'utf-8-sig']
+        encodings = ['utf-8', 'gbk', 'utf-16le', 'gb2312', 'latin-1', 'cp1252', 'utf-8-sig']
         
         for encoding in encodings:
             try:
@@ -58,10 +58,10 @@ class StokesParameters:
             with open(file_path, 'rb') as f:
                 raw_data = f.read()
                 
-            # 检查是否为二进制文件
-            if b'\x00' in raw_data:
-                print("错误: 文件似乎是二进制文件，不支持此格式")
-                return False
+            # # 检查是否为二进制文件
+            # if b'\x00' in raw_data:
+            #     print("错误: 文件似乎是二进制文件，不支持此格式")
+            #     return False
                 
             # 尝试使用chardet进行编码检测（如果可用）
             try:
@@ -118,7 +118,11 @@ class StokesParameters:
             # 提取需要的参数
             intensity = self.data['Intensity [%]'].values / 100.0  # 归一化到0-1
             dop = self.data['DOP [%]'].values / 100.0  # 转换为0-1范围
-            azimuth_deg = self.data['φ [°]'].values  # 方位角(度)
+            try:
+                azimuth_deg = self.data['φ [°]'].values  # 方位角(度)
+            except:
+                #读取第5列
+                azimuth_deg = self.data.iloc[:, 4].values
             per_db = self.data['PER [dB]'].values  # 消光比(dB)
             
             # 转换角度为弧度
@@ -153,7 +157,6 @@ class StokesParameters:
                 'Azimuth_original [°]': azimuth_deg,
                 'PER_original [dB]': per_db,
                 'Intensity_original [%]': self.data['Intensity [%]'],
-                'Timestamp': self.data['Timestamp']
             })
             
             self.stokes_results = results
