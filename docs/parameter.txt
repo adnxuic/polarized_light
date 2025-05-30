@@ -1,0 +1,12 @@
+DOP Degree Of Polarization
+The DOP describes the polarized fraction of radiation. This value ranges between 100 %(totally polarized) and 0 % (totally depolarized). Almost all lasers have DOPs close to 100 %Since the Poincaré sphere is normalized to the DOP, its radius is always 1 (100%) and doesnot account for the unpolarized fraction of the radiation.
+Intensity [o ... 100]
+The intensity displayed is the intensity of the incoming radiation. lt is not measured directlybut calculated from the detector signal as the Stokes parameter So, see appendix D.4.The relation of these parameters with the Stokes parameter and its depiction on the Poincarésphere is described in appendix D.2.
+For interpretation of the values acquired during PER-Measurement, see subsection 5.5.2
+5.3.2 Window 'Numerical Values'
+The continuously measured state of polarization SOP is displayed with the following parameters.
+see Figure 11.
+PER Extinction [dB]The extinction ratio PER is the ratio of the powers in the two (linear) principal states of pola-rization in logarithmic scale.
+lin. PER Extinction [dB]The extinction lin. PER is the ratio of linear polarized light to the total amount of light measu-red in logarithmic scale. For depolarized sources the lin. PER will be lower than PER.
+Azimuth Angle [°]The azimuth angle p describes the angle of the main polarization axis. in the ellipse view thisvalue is the angle of the semi-major axis in f°. On the Poincaré sphere, this value is equiva-lent to half the longitude angle or azimuth (in °l).The azimuth angle is a relative value givenwith respect to a reference value. When the polarimeter is shipped, the reference value is setto zero with respect to the micro bench adapter plate.
+rel. p relative Azimuth Angle [°]The user can change the reference value of the azimuth by software, see subsection 5.4.3The factory setting is then discarded. After redefining the reference, the azimuth angle p isdisplaved with a prefixed 'rel', To switch to the standard reference value, select 'Edit'-> 'Set0-Phase (default)'or press Alt+F4.
